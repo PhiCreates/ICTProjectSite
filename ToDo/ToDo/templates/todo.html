@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do App</title>
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+  <div class="signup-login">
+   
+    <div class="signup-box scr">
+      
+      <form method="post">
+        
+        {% csrf_token %}
+        <div class="heading">
+          Get Things Done {{user}} 
+        </div>
+
+        <div class="anca">
+          <a href="{% url 'signout' %}" class="sign">Log Out</a>
+        </div>
+
+        <input type="text" class="inp" name="title" placeholder="Enter your task" required>
+        <input type="submit" class="submit-button" value="Add Task">
+
+      </form>
+
+      {% for todo in res%}
+      <div class="Todo">
+        <p>{{todo.title}}</p>
+        <a href="/delete_todo/{{todo.serialno}}">X</a>
+      </div>
+      {% endfor %}
+
+
+    </div>
+
+  </div>
+
+</body>
+</html>

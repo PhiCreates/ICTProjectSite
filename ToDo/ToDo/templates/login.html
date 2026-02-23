@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In</title>
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+
+  <div class="signup-login">
+    
+    <div class="signup-box">
+      
+      <form method="post">
+        
+        {% csrf_token %}
+        <div class="heading">
+          Log In
+        </div>
+
+        <div class="line"></div>
+        <div class="feild">
+          <b>Username</b>
+          <input type="text" required class="inp" placeholder="Enter your username" name="fnm">
+        </div>
+        <div class="feild">
+          <b>Password</b>
+          <input type="password" required class="inp" placeholder='Enter a password' name="fpwd">
+        </div>
+        <div class="feild">
+          <input type="submit" class="submit-button" value="Log In">
+        </div>
+
+      </form>
+
+      <div class="feild">
+        <b>Don't have an account?</b>
+        <br>
+        <a class="anc" href="/">Click Here</a>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
